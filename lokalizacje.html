@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Lokalizacje - OZO DANCE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<link rel="manifest" href="site.webmanifest" />
+    <style>
+        .city-btn {
+            background: none;
+            border: 2px solid #ff00ff;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: 0.3s;
+            font-family: 'Bangers', cursive;
+            letter-spacing: 1px;
+        }
+        .city-btn:hover, .city-btn.active {
+            background: #ff00ff;
+            box-shadow: 0 0 15px #ff00ff;
+        }
+        .map-container {
+            margin-top: 30px;
+            display: none; /* Ukryte do momentu kliknięcia */
+            animation: fadeIn 0.5s ease-in;
+            width: 100%;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .map-container.show {
+            display: block;
+        }
+        .map-frame {
+            width: 100%;
+            height: 500px;
+            border: 3px solid #ff00ff;
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgba(255, 0, 255, 0.3);
+        }
+        h2#city-title {
+            color: #ff00ff;
+            font-family: 'Bangers';
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="logo">
+                <img src="logo.jpeg" alt="Logo" class="logo-img"> OZO<span> DANCE</span> STUDIO
+            </div>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">STRONA GŁÓWNA</a></li>
+                <li><a href="o-nas.html">O NAS</a></li>
+                <li><a href="oferta.html">OFERTA</a></li>
+                <li class="dropdown">
+                    <a href="#">PRODUKTY ▾</a>
+                    <div class="dropdown-content">
+                        <a href="grafik.html">GRAFIK</a>
+                        <a href="style-tanca.html">STYLE TAŃCA</a>
+                        <a href="umowa-regulamin.html">UMOWA/REGULAMIN</a>
+                        <a href="osiagniecia.html">OSIĄGNIĘCIA</a>
+                    </div>
+                </li>
+                <li><a href="instruktorzy.html">INSTRUKTORZY</a></li>
+                <li><a href="cennik.html">CENNIK</a></li>
+                <li><a href="lokalizacje.html" class="active">LOKALIZACJE</a></li>
+                <li><a href="kontakt.html">KONTAKT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main style="text-align: center; padding-bottom: 50px;">
+        <h1>NASZE LOKALIZACJE</h1>
+        <p>Wybierz miasto, aby zobaczyć mapę dojazdu:</p>
+        
+        <div class="buttons" style="margin-top: 30px; margin-bottom: 20px;">
+            <button class="city-btn" onclick="updateMap('ozorkow')">Ozorków</button>
+            <button class="city-btn" onclick="updateMap('leczyca')">Łęczyca</button>
+            <button class="city-btn" onclick="updateMap('bielawy')">Bielawy</button>
+            <button class="city-btn" onclick="updateMap('glowno')">Głowno</button>
+            <button class="city-btn" onclick="updateMap('brzeziny')">Brzeziny</button>
+            <button class="city-btn" onclick="updateMap('lowicz')">Łowicz</button>
+        </div>
+
+        <div id="map-section" class="map-container">
+            <h2 id="city-title"></h2>
+            <iframe id="city-map" class="map-frame" src="" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </main>
+<footer>
+    <div class="footer-container">
+        
+        <div class="footer-col">
+            <h3>OZO DANCE STUDIO</h3>
+            <p>Tworzymy przestrzeń, gdzie pasja spotyka się z profesjonalizmem. Dołącz do naszej tanecznej rodziny w jednej z 7 lokalizacji.</p>
+            <div class="footer-logo" style="font-family: 'Bangers'; font-size: 2rem; margin-top: 15px;">
+                OZO <span style="color: var(--accent-color);">DANCE</span> STUDIO
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h3>NA SKRÓTY</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li><a href="grafik.html">Grafik Zajęć</a></li>
+                <li><a href="cennik.html">Cennik</a></li>
+                <li><a href="instruktorzy.html">Nasza Kadra</a></li>
+                <li><a href="lokalizacje.html">Lokalizacje</a></li>
+                <li><a href="umowa-regulamin.html">Regulamin</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>KONTAKT</h3>
+            <p style="margin-bottom: 10px;">
+                <a href="mailto:OzoDanceStudio@wp.pl" style="color: #fff; text-decoration: none;">
+                    <i class="fas fa-envelope" style="color: var(--accent-color); width: 20px;"></i> OzoDanceStudio@wp.pl
+                </a>
+            </p>
+            <p style="margin-bottom: 5px;">
+                <a href="tel:+48793432215" style="color: #fff; text-decoration: none;">
+                    <i class="fas fa-phone" style="color: var(--accent-color); width: 20px;"></i> +48 793-432-215
+                </a>
+            </p>
+            <p style="margin-bottom: 15px;">
+                <a href="tel:+48535525271" style="color: #fff; text-decoration: none;">
+                    <i class="fas fa-phone" style="color: var(--accent-color); width: 20px;"></i> +48 535-525-271
+                </a>
+            </p>
+            <div style="font-size: 0.85em; color: #888; border-top: 1px solid #333; padding-top: 10px;">
+                <strong>NASZE LOKALIZACJE:</strong><br>
+                Ozorków • Łęczyca • Głowno • Brzeziny • Łowicz • Bielawy
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h3>BĄDŹ NA BIEŻĄCO</h3>
+            <p>Obserwuj nas!</p>
+            <div class="social-links" style="margin-top: 15px; display: flex; flex-direction: column; gap: 10px;">
+                <a href="https://www.facebook.com/share/1BzbG5HPov/" target="_blank" style="color: #fff; text-decoration: none; font-family: 'Bangers'; font-size: 1.2rem;">
+                    <i class="fab fa-facebook-f" style="color: var(--accent-color); width: 20px;"></i> FACEBOOK
+                </a>
+                <a href="https://www.instagram.com/ozo_dance_studio" target="_blank" style="color: #fff; text-decoration: none; font-family: 'Bangers'; font-size: 1.2rem;">
+                    <i class="fab fa-instagram" style="color: var(--accent-color); width: 20px;"></i> INSTAGRAM
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom" style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #222; font-size: 0.8rem; color: #555;">
+        <p>&copy; 2026 OZO DANCE STUDIO. Wszelkie prawa zastrzeżone.</p>
+    </div>
+</footer>
+    <script>
+        const cityData = {
+            'ozorkow': {
+                title: 'OZO DANCE - OZORKÓW',
+                map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2458.481310230231!2d19.291665277072905!3d51.96164947741731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471bb00c958f0293%3A0xe94a9558b2f47c2f!2sWyszy%C5%84skiego%2023%2C%2095-035%20Ozork%C3%B3w!5e0!3m2!1spl!2spl!4v1767975373299!5m2!1spl!2spl'
+            },
+            'leczyca': {
+                title: 'OZO DANCE - ŁĘCZYCA',
+                map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2453.040392107989!2d19.197894877077232!3d52.060788170126116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ba41d4e062761%3A0xb7d09d6f6357e55f!2zUG96bmHFhHNrYSAxNywgOTktMTAxIMWBxJljenljYQ!5e0!3m2!1spl!2spl!4v1767975264604!5m2!1spl!2spl'
+            },
+            'bielawy': {
+                title: 'OZO DANCE - BIELAWY',
+                map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2452.433980986525!2d19.65814567707773!3d52.07182926931353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471bc025228ac4c5%3A0x5752305dc85438e!2sParzew%2020%2C%2099-423%20Bielawy!5e0!3m2!1spl!2spl!4v1767975400827!5m2!1spl!2spl'
+            },
+            'glowno': {
+                title: 'OZO DANCE - GŁOWNO',
+                map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2458.5923803508463!2d19.728301177072776!3d51.959624277566185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471bc4607a0afcff%3A0x32b968f45a8658cb!2sTadeusza%20Ko%C5%9Bciuszki%2011%2F13%2C%2095-015%20G%C5%82owno!5e0!3m2!1spl!2spl!4v1767975520331!5m2!1spl!2spl'
+            },
+            'brzeziny': {
+                title: 'OZO DANCE - BRZEZINY',
+                map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2467.3691151825305!2d19.755027177065738!3d51.799415789328286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471bd3d5eb072f9d%3A0x626979ec3b33488b!2sHenryka%20Sienkiewicza%2010%2F12%2C%2095-060%20Brzeziny!5e0!3m2!1spl!2spl!4v1767975442997!5m2!1spl!2spl'
+            },
+            'lowicz': {
+                title: 'OZO DANCE - ŁOWICZ',
+                map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2450.6662404348804!2d19.945240677079155!3d52.10400556694467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471be66c882985c5%3A0xd4e235ee91891d0!2sKaliska%205%2C%2099-400%20%C5%81owicz!5e0!3m2!1spl!2spl!4v1767975490347!5m2!1spl!2spl'
+            }
+        };
+
+        function updateMap(cityId) {
+            const data = cityData[cityId];
+            
+            // Podmiana tytułu i źródła mapy
+            document.getElementById('city-title').innerText = data.title;
+            document.getElementById('city-map').src = data.map;
+
+            // Pokazanie mapy
+            document.getElementById('map-section').classList.add('show');
+
+            // Obsługa przycisków
+            const buttons = document.querySelectorAll('.city-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            // Płynny scroll do mapy (ważne na mobile)
+            document.getElementById('map-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function toggleMenu() {
+            document.querySelector('nav').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
