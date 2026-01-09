@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Lokalizacje i Grafik - OZO DANCE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<link rel="manifest" href="site.webmanifest" />
+    <style>
+        .city-btn {
+            background: none;
+            border: 2px solid #ff00ff;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .city-btn:hover, .city-btn.active {
+            background: #ff00ff;
+        }
+        .schedule-container {
+            margin-top: 30px;
+            min-height: 400px;
+        }
+        .schedule-img {
+            display: none; /* Domyślnie ukryte */
+            max-width: 100%;
+            border: 3px solid #ff00ff;
+        }
+        .schedule-img.show {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="logo">
+                <img src="logo.jpeg" alt="Logo" class="logo-img"> OZO<span> DANCE</span> STUDIO
+            </div>
+        </div>
+
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        
+        <nav>
+            <ul>
+                <li><a href="index.html">STRONA GŁÓWNA</a></li>
+                <li><a href="o-nas.html">O NAS</a></li>
+                <li><a href="oferta.html">OFERTA</a></li>
+                
+                <li class="dropdown">
+                    <a href="#">PRODUKTY ▾</a>
+                    <div class="dropdown-content">
+                        <a href="grafik.html"class="active">GRAFIK</a>
+                        <a href="style-tanca.html">STYLE TAŃCA</a>
+                        <a href="umowa-regulamin.html">UMOWA/REGULAMIN</a>
+                        <a href="osiagniecia.html">OSIĄGNIĘCIA</a>
+                    </div>
+                </li>
+                <li><a href="instruktorzy.html">INSTRUKTORZY</a></li>
+                <li><a href="cennik.html">CENNIK</a></li>
+                <li><a href="lokalizacje.html">LOKALIZACJE</a></li>
+                <li><a href="kontakt.html">KONTAKT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main style="text-align: center;">
+        <h1>Wybierz swoją lokalizację</h1>
+        <br>
+        <p>Kliknij w miasto, aby zobaczyć grafik zajęć:</p>
+        <br><br>
+        <div class="buttons">
+            <button class="city-btn" onclick="showSchedule('ozorkow')">Ozorków</button>
+            <button class="city-btn" onclick="showSchedule('leczyca')">Łęczyca</button>
+            <button class="city-btn" onclick="showSchedule('bielawy')">Bielawy</button>
+            <button class="city-btn" onclick="showSchedule('glowno')">Głowno</button>
+            <button class="city-btn" onclick="showSchedule('brzeziny')">Brzeziny</button>
+            <button class="city-btn" onclick="showSchedule('lowicz')">Łowicz</button>
+        </div>
+
+        <div class="schedule-container">
+            <img id="ozorkow" src="grafik-ozorkow.jpg" class="schedule-img" alt="Grafik Ozorków">
+            <img id="leczyca" src="grafik-leczyca.jpg" class="schedule-img" alt="Grafik Łęczyca">
+            <img id="bielawy" src="grafik-bielawy.jpg" class="schedule-img" alt="Grafik Bielawy">
+            <img id="glowno" src="grafik-glowno.jpg" class="schedule-img" alt="Grafik Głowno">
+            <img id="brzeziny" src="grafik-brzeziny.jpg" class="schedule-img" alt="Grafik Brzeziny">
+            <img id="lowicz" src="grafik-lowicz.jpg" class="schedule-img" alt="Grafik Łowicz">
+        </div>
+    </main>
+<footer>
+    <div class="footer-container">
+        
+        <div class="footer-col">
+            <h3>OZO DANCE STUDIO</h3>
+            <p>Tworzymy przestrzeń, gdzie pasja spotyka się z profesjonalizmem. Dołącz do naszej tanecznej rodziny w jednej z 7 lokalizacji.</p>
+            <div class="footer-logo" style="font-family: 'Bangers'; font-size: 2rem; margin-top: 15px;">
+                OZO <span style="color: var(--accent-color);">DANCE</span> STUDIO
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h3>NA SKRÓTY</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li><a href="grafik.html">Grafik Zajęć</a></li>
+                <li><a href="cennik.html">Cennik</a></li>
+                <li><a href="instruktorzy.html">Nasza Kadra</a></li>
+                <li><a href="lokalizacje.html">Lokalizacje</a></li>
+                <li><a href="umowa-regulamin.html">Regulamin</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>KONTAKT</h3>
+            <p style="margin-bottom: 10px;">
+                <a href="mailto:OzoDanceStudio@wp.pl" style="color: #fff; text-decoration: none;">
+                    <i class="fas fa-envelope" style="color: var(--accent-color); width: 20px;"></i> OzoDanceStudio@wp.pl
+                </a>
+            </p>
+            <p style="margin-bottom: 5px;">
+                <a href="tel:+48793432215" style="color: #fff; text-decoration: none;">
+                    <i class="fas fa-phone" style="color: var(--accent-color); width: 20px;"></i> +48 793-432-215
+                </a>
+            </p>
+            <p style="margin-bottom: 15px;">
+                <a href="tel:+48535525271" style="color: #fff; text-decoration: none;">
+                    <i class="fas fa-phone" style="color: var(--accent-color); width: 20px;"></i> +48 535-525-271
+                </a>
+            </p>
+            <div style="font-size: 0.85em; color: #888; border-top: 1px solid #333; padding-top: 10px;">
+                <strong>NASZE LOKALIZACJE:</strong><br>
+                Ozorków • Łęczyca • Głowno • Brzeziny • Łowicz • Bielawy
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h3>BĄDŹ NA BIEŻĄCO</h3>
+            <p>Obserwuj nas!</p>
+            <div class="social-links" style="margin-top: 15px; display: flex; flex-direction: column; gap: 10px;">
+                <a href="https://www.facebook.com/share/1BzbG5HPov/" target="_blank" style="color: #fff; text-decoration: none; font-family: 'Bangers'; font-size: 1.2rem;">
+                    <i class="fab fa-facebook-f" style="color: var(--accent-color); width: 20px;"></i> FACEBOOK
+                </a>
+                <a href="https://www.instagram.com/ozo_dance_studio" target="_blank" style="color: #fff; text-decoration: none; font-family: 'Bangers'; font-size: 1.2rem;">
+                    <i class="fab fa-instagram" style="color: var(--accent-color); width: 20px;"></i> INSTAGRAM
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom" style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #222; font-size: 0.8rem; color: #555;">
+        <p>&copy; 2026 OZO DANCE STUDIO. Wszelkie prawa zastrzeżone.</p>
+    </div>
+</footer>
+    <script>
+        function showSchedule(cityId) {
+            // Ukryj wszystkie obrazki
+            const images = document.querySelectorAll('.schedule-img');
+            images.forEach(img => img.classList.remove('show'));
+            
+            // Pokaż wybrany
+            const selected = document.getElementById(cityId);
+            if(selected) selected.classList.add('show');
+
+            // Podświetl aktywny przycisk
+            const buttons = document.querySelectorAll('.city-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
+        // Funkcja otwierająca/zamykająca menu (podpięta pod ikonę ☰)
+    function toggleMenu() {
+        document.querySelector('nav').classList.toggle('active');
+    }
+
+    // Funkcja automatycznie zwijająca menu przy skrolowaniu
+    window.onscroll = function() {
+        let nav = document.querySelector('nav');
+        let dropdown = document.querySelector('.dropdown');
+
+        // Jeśli menu jest otwarte i użytkownik skroluje...
+        if (nav.classList.contains('active')) {
+            // ...to usuń klasę active (zamknij menu)
+            nav.classList.remove('active');
+            
+            // Opcjonalnie: zamknij też podmenu Produkty, jeśli było otwarte
+            if (dropdown) {
+                dropdown.classList.remove('active-mobile');
+            }
+        }
+    };
+    </script>
+</body>
+</html>
