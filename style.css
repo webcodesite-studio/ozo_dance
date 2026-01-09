@@ -1,0 +1,583 @@
+/* style.css - PEŁNA WERSJA ZE WSZYSTKIMI EFEKTAMI */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+:root {
+    --accent-color: #ff00ff;
+    --text-color: #ffffff;
+    --bg-overlay: rgba(0, 0, 0, 0.85);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url('tlo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    background-color: #000;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: var(--bg-overlay);
+    z-index: -1;
+}
+
+/* --- FIX DLA OBRAZÓW I CENTROWANIA --- */
+main { 
+    flex: 1; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 40px 20px; 
+    width: 100%; 
+    /* To zapewnia, że zawartość każdej strony jest wyśrodkowana */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Zapobieganie rozwalaniu strony przez duże zdjęcia */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- NAGŁÓWKI I TYPOGRAFIA --- */
+h1, h2, h3, .logo, nav a, .footer-col h3, .social-btn {
+    font-family: "Bangers", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 3rem;
+    color: var(--accent-color);
+    text-shadow: 2px 2px 0px #000;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+/* --- NAGŁÓWEK STRONY --- */
+header {
+    background-color: #000000;
+    padding: 15px 20px;
+    border-bottom: 3px solid var(--accent-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-size: 32px;
+    text-transform: uppercase; 
+}
+
+.logo-img { height: 60px; width: auto; object-fit: contain; }
+.logo span { color: var(--accent-color); }
+
+/* --- MENU --- */
+nav { width: 100%; margin-top: 10px; }
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav a {
+    display: block;
+    color: white;
+    padding: 15px 20px;
+    font-size: 18px;
+    border-bottom: 3px solid transparent;
+}
+
+nav a:hover, nav a.active {
+    color: var(--accent-color);
+    border-bottom: 3px solid var(--accent-color);
+}
+
+.dropdown { position: relative; }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #111;
+    min-width: 200px;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    border-top: 3px solid var(--accent-color);
+}
+.dropdown:hover .dropdown-content { display: block; }
+.dropdown-content a { padding: 15px 20px; border-bottom: 1px solid #222; text-align: center; }
+
+/* --- SEKCJA HERO (TWOJA ORYGINALNA) --- */
+.hero-section {
+    text-align: center;
+    padding: 100px 20px;
+    animation: fadeIn 1s ease-in;
+}
+
+.hero-title {
+    font-size: 5rem;
+    margin-bottom: 10px;
+    line-height: 1;
+    text-transform: uppercase;
+    text-shadow: 4px 4px 0px #000;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: #ddd;
+    margin-bottom: 40px;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: bold;
+    background-color: rgba(0,0,0,0.5);
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+.btn-main {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 15px 40px;
+    font-family: 'Bangers', sans-serif;
+    font-size: 24px;
+    border-radius: 50px;
+    box-shadow: 0 0 15px var(--accent-color);
+}
+
+.btn-main:hover {
+    background-color: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+/* --- KAFELKI / FEATURES (TWOJE ORYGINALNE) --- */
+.features-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 60px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.feature-card {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--accent-color);
+    padding: 30px;
+    width: 300px;
+    text-align: center;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(255, 0, 255, 0.3);
+}
+
+/* --- KONTAKT PROFESJONALNY --- */
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+    margin: 40px auto;
+    max-width: 800px;
+    animation: fadeIn 1s ease-in;
+}
+
+.contact-card {
+    background: rgba(0,0,0,0.7);
+    padding: 40px 20px;
+    border-radius: 20px;
+    border: 2px solid var(--accent-color);
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.1);
+}
+
+.contact-links p a {
+    color: #fff !important;
+    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.contact-links i { color: var(--accent-color); font-size: 1.3rem; width: 25px; }
+
+/* --- PRZYCISKI SOCIAL MEDIA --- */
+.social-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    background: var(--accent-color);
+    color: white !important;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid var(--accent-color);
+}
+
+.social-btn:hover {
+    background: transparent;
+    color: var(--accent-color) !important;
+    transform: translateY(-5px);
+}
+
+/* --- STOPKA --- */
+footer {
+    background-color: #000;
+    border-top: 3px solid var(--accent-color);
+    padding: 40px 20px;
+    margin-top: auto;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    text-align: left;
+}
+
+.footer-col h3 { color: var(--accent-color); margin-bottom: 15px; }
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #222;
+    font-size: 0.8rem;
+    color: #555;
+}
+
+/* --- RESPONSYWNOŚĆ --- */
+.menu-toggle { 
+    display: none; 
+    color: var(--accent-color); 
+    font-size: 35px; 
+    cursor: pointer; 
+}
+
+@media (max-width: 900px) {
+    .menu-toggle { display: block; }
+    nav ul { display: none; flex-direction: column; width: 100%; }
+    nav.active ul { display: flex; }
+    .hero-title { font-size: 3rem; }
+    .hero-subtitle { font-size: 1rem; }
+    .logo { font-size: 24px; }
+    .logo-img { height: 45px; }
+    .social-buttons { flex-direction: column; align-items: center; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* --- SEKCJA INSTRUKTORZY --- */
+.instructor-section {
+    display: flex;
+    flex-direction: column;
+    gap: 60px; /* Odstęp między instruktorami */
+    width: 100%;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.instructor-row {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 0, 255, 0.2);
+    transition: 0.3s;
+}
+
+.instructor-row:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.2);
+}
+
+/* Magia naprzemienności: co drugi wiersz ma odwróconą kolejność */
+.instructor-row:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.instructor-img-wrapper {
+    flex: 1;
+    max-width: 400px;
+}
+
+.instructor-img-wrapper img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.instructor-info {
+    flex: 1.5;
+    text-align: left;
+}
+
+.instructor-row:nth-child(even) .instructor-info {
+    text-align: right; /* Tekst wyrównany do prawej, gdy zdjęcie jest po prawej */
+}
+
+.instructor-info h2 {
+    color: var(--accent-color);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.instructor-info p {
+    font-size: 1.1rem;
+    color: #ddd;
+    line-height: 1.6;
+}
+
+/* Responsywność dla telefonów */
+@media (max-width: 768px) {
+    .instructor-row, .instructor-row:nth-child(even) {
+        flex-direction: column; /* Na telefonie zdjęcie zawsze na górze */
+        text-align: center !important;
+    }
+    
+    .instructor-row:nth-child(even) .instructor-info {
+        text-align: center;
+    }
+}
+/* --- DOKLEJ TO DLA SEKCJI INSTRUKTORZY --- */
+
+/* Kontener główny dla wszystkich instruktorów */
+.instructors-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 70px; /* Odstęp między wierszami instruktorów */
+    padding: 20px 0;
+}
+
+/* Pojedynczy wiersz instruktora */
+.instr-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    width: 100%;
+    background: rgba(20, 20, 20, 0.6); /* Delikatne tło dla czytelności */
+    padding: 40px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 0, 255, 0.1);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.instr-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    background: rgba(20, 20, 20, 0.8);
+}
+
+/* MAGIA: Naprzemienność - co drugi element (parzysty) odwraca kolejność */
+.instr-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* Stylizacja zdjęcia */
+.instr-img {
+    width: 320px; /* Stała szerokość dla porządku */
+    height: 420px;
+    object-fit: cover; /* Zdjęcie wypełnia obszar bez rozciągania */
+    border-radius: 20px;
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+    flex-shrink: 0; /* Zdjęcie nie będzie się zgniatać */
+}
+
+/* Stylizacja tekstu */
+.instr-text {
+    flex: 1;
+    text-align: left;
+}
+
+/* Wyrównanie tekstu do prawej, gdy zdjęcie jest po prawej */
+.instr-item:nth-child(even) .instr-text {
+    text-align: right;
+}
+
+.instr-text h2 {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 5px;
+}
+
+.instr-text h3 {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.instr-text p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #eee;
+}
+
+/* --- RESPONSYWNOŚĆ (MOBILE) --- */
+@media (max-width: 900px) {
+    .instr-item, 
+    .instr-item:nth-child(even) {
+        flex-direction: column; /* Na telefonie wszystko w pionie */
+        text-align: center !important;
+        padding: 20px;
+        gap: 25px;
+    }
+
+    .instr-img {
+        width: 100%;
+        max-width: 300px;
+        height: 350px;
+    }
+
+    .instr-text h2 {
+        font-size: 2rem;
+    }
+}
+/* ============================================================
+   NOWA SEKCJA: STYLE TAŃCA (DODANE DO TWOJEGO PLIKU)
+   ============================================================ */
+
+/* Naprawa siatki - kafelki będą obok siebie */
+.styles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+/* Styl kafelka dopasowany do Twojego designu */
+.style-card {
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid var(--accent-color);
+    padding: 40px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 15px;
+    font-family: "Bangers", system-ui; /* Spójność z Twoimi nagłówkami */
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+
+.style-card:hover {
+    transform: scale(1.03);
+    background: rgba(255, 0, 255, 0.1);
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.4);
+}
+
+/* Stylizacja okienka pop-up (Modal) */
+.style-popup {
+    display: none; 
+    position: fixed; 
+    z-index: 9999; 
+    left: 0; top: 0; 
+    width: 100%; height: 100%; 
+    background-color: rgba(0, 0, 0, 0.95); 
+    align-items: center; 
+    justify-content: center;
+}
+
+.popup-content {
+    background: #000;
+    border: 3px solid var(--accent-color);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 30px var(--accent-color);
+}
+
+.popup-content h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.popup-content p {
+    font-size: 1.2rem;
+    color: #fff;
+    line-height: 1.8;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 45px;
+    color: var(--accent-color);
+    cursor: pointer;
+}
+
+/* Responsywność dla kafelków na małych ekranach */
+@media (max-width: 600px) {
+    .styles-grid {
+        grid-template-columns: 1fr;
+    }
+    .popup-content h2 {
+        font-size: 2rem;
+    }
+}
+/* Poprawka dla przycisków w sekcji umowy */
+.contact-card .btn-main {
+    cursor: pointer;
+    border: none; /* Reset dla przycisków typu button */
+    min-width: 200px;
+}
